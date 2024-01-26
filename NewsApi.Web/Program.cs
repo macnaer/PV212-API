@@ -1,4 +1,12 @@
+using NewsApi.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Crete connection string
+string conStr = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Add AppDbContext
+builder.Services.AddDbContext(conStr);
 
 // Add services to the container.
 

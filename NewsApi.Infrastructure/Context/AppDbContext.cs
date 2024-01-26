@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NewsApi.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace NewsApi.Infrastructure.Context
         public AppDbContext() : base() { }
         public AppDbContext(DbContextOptions options) : base (options) { }
 
-        
+        public DbSet<Category> Categories { get; set; }
     }
 }

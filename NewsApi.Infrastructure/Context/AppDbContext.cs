@@ -17,8 +17,10 @@ namespace NewsApi.Infrastructure.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.SeedCategory();
+            modelBuilder.SeedNews();
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }

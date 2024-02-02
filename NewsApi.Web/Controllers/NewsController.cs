@@ -21,5 +21,12 @@ namespace NewsApi.Web.Controllers
             var news = await _newsService.GetAll();
             return  Ok(news);
         }
+
+        [HttpPost("GetAll")]
+        public async Task<IActionResult> GetById(int Id)
+        {
+            var news = await _newsService.Get(Id);
+            return Ok(news);
+        }
     }
 }

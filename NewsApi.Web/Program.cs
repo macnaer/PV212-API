@@ -8,6 +8,9 @@ string conStr = builder.Configuration.GetConnectionString("DefaultConnection");
 // Add AppDbContext
 builder.Services.AddDbContext(conStr);
 
+// Add Repository
+builder.Services.AddRepositories();
+
 // Add services to the container.
 
 builder.Services.AddControllers();

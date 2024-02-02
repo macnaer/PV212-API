@@ -1,3 +1,4 @@
+using NewsApi.Core;
 using NewsApi.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,10 @@ builder.Services.AddDbContext(conStr);
 
 // Add Repository
 builder.Services.AddRepositories();
+
+// Add Core Services
+builder.Services.AddCoreServices();
+
 
 // Add services to the container.
 

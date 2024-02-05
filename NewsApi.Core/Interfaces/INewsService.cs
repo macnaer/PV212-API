@@ -9,9 +9,10 @@ namespace NewsApi.Core.Interfaces
 {
     public interface INewsService
     {
+        Task Insert(News model);
         Task<List<News>> GetAll();
         Task<News> Get(int id);
-        Task<News> Update(News news);
-        Task<News> Delete(int id);
+        Task Update(News news);
+        Task Delete(int id);
     }
 }

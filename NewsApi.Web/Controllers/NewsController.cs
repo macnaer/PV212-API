@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NewsApi.Core.Entities;
 using NewsApi.Core.Interfaces;
 
 namespace NewsApi.Web.Controllers
@@ -19,7 +20,7 @@ namespace NewsApi.Web.Controllers
         public async Task<IActionResult> GetAll()
         {
             var news = await _newsService.GetAll();
-            return  Ok(news);
+            return Ok(news);
         }
 
         [HttpPost("GetAll")]
@@ -27,6 +28,27 @@ namespace NewsApi.Web.Controllers
         {
             var news = await _newsService.Get(Id);
             return Ok(news);
+        }
+
+        [HttpPost("Insert")]
+        public async Task<IActionResult> Insert(News model)
+        {
+            await _newsService.Insert(model);
+            return Ok();
+        }
+
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update(News model)
+        {
+            await _newsService.Update(model);
+            return Ok();
+        }
+
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            await _newsService.Delete(Id);
+            return Ok();
         }
     }
 }

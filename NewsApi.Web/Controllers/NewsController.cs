@@ -23,7 +23,7 @@ namespace NewsApi.Web.Controllers
             return Ok(news);
         }
 
-        [HttpPost("GetAll")]
+        [HttpPost("GetById")]
         public async Task<IActionResult> GetById(int Id)
         {
             var news = await _newsService.Get(Id);

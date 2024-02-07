@@ -1,4 +1,6 @@
-﻿using NewsApi.Core.Entities;
+﻿using AutoMapper;
+using NewsApi.Core.DTOs;
+using NewsApi.Core.Entities;
 using NewsApi.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,12 @@ namespace NewsApi.Core.Services
     public class NewsService : INewsService
     {
         private readonly IRepository<News> _newsRepository;
+        private readonly IMapper _mapper;
 
-        public NewsService(IRepository<News> newsRepository)
+        public NewsService(IRepository<News> newsRepository, IMapper mapper)
         {
             _newsRepository = newsRepository;
+            _mapper = mapper;   
         }
 
         public async Task Delete(int id)
@@ -34,10 +38,9 @@ namespace NewsApi.Core.Services
             await _newsRepository.Save();
         }
 
-        public async Task<List<News>> GetAll()
+        public async Task<List<NewsDto>> GetAll()
         {
-
-            return (List<News>)await _newsRepository.GetAll();
+            return _mapper.Map<List<NewsDto>>(await _newsRepository.GetAll());
         }
 
         public async Task Update(News news)

@@ -14,5 +14,6 @@ namespace NewsApi.Core.Entities
         public string Description { get; set; } = string.Empty;
         public string FullText { get; set; } = string.Empty;
         public int CategoryId { get; set; }
+        public Category? Category { get; set; }
     }
 }

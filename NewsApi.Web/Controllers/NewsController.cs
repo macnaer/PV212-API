@@ -30,6 +30,13 @@ namespace NewsApi.Web.Controllers
             return Ok(news);
         }
 
+        [HttpPost("GetByCategory")]
+        public async Task<IActionResult> GetByCategory(int id)
+        {
+            var news = await _newsService.GetByCategory(id);
+            return Ok(news);
+        }
+
         [HttpPost("Insert")]
         public async Task<IActionResult> Insert(News model)
         {

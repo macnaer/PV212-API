@@ -12,8 +12,9 @@ namespace NewsApi.Core.Interfaces
     {
         Task Insert(News model);
         Task<List<NewsDto>> GetAll();
-        Task<News> Get(int id);
+        Task<NewsDto> Get(int id);
         Task Update(News news);
         Task Delete(int id);
+        Task<List<News>> GetByCategory(int id);
     }
 }

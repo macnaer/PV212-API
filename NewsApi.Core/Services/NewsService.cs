@@ -39,9 +39,15 @@ namespace NewsApi.Core.Services
             await _newsRepository.Save();
         }
 
-        public async Task<List<NewsDto>> GetAll()
+        public async Task<ServiceResponse> GetAll()
         {
-            return _mapper.Map<List<NewsDto>>(await _newsRepository.GetAll());
+            var data =  _mapper.Map<List<NewsDto>>(await _newsRepository.GetAll());
+            return new ServiceResponse
+            {
+                Success = true,
+                Message = "All news successfully loaded.",
+                Payload = data
+            };
         }
 
         public async Task Update(News news)
